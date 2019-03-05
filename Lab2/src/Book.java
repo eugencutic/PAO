@@ -1,41 +1,57 @@
 public class Book {
-    private final int mId;
+    private int mId;
     private String mTitle;
     private String mAuthor;
     private String mGenre;
 
-    public Book(int mId) {
-        this.mId = mId;
+    public Book() {
+
     }
 
-    public Book(int mId, String mTitle, String mAuthor, String mGenre) {
-        this.mId = mId;
+    public Book(String mTitle, String mAuthor, String mGenre) {
         this.mTitle = mTitle;
         this.mAuthor = mAuthor;
         this.mGenre = mGenre;
     }
 
-    public String getmTitle() {
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int mId) {
+        this.mId = mId;
+    }
+
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public String getmAuthor() {
+    public String getAuthor() {
         return mAuthor;
     }
 
-    public void setmAuthor(String mAuthor) {
+    public void setAuthor(String mAuthor) {
         this.mAuthor = mAuthor;
     }
 
-    public String getmGenre() {
+    public String getGenre() {
         return mGenre;
     }
 
-    public void setmGenre(String mGenre) {
+    public void setGenre(String mGenre) {
         this.mGenre = mGenre;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "Title='" + mTitle + '\'' +
+                ", Author='" + mAuthor + '\'' +
+                ", Genre='" + mGenre + '\'' +
+                '}';
     }
 }
