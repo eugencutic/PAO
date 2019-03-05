@@ -1,21 +1,35 @@
 import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
 
 public class LibraryService {
-    private List<User> mUsers;
-    private List<Reservation> mReservations;
-    private List<Book> mBooks;
+    private ArrayList<User> mUsers;
+    private ArrayList<Reservation> mReservations;
+    private ArrayList<Book> mBooks;
 
     private static int mBookId = 0;
+    private static int mUserId = 0;
+
+    public LibraryService() {
+        mUsers = new ArrayList<>();
+        mReservations = new ArrayList<>();
+        mBooks = new ArrayList<>();
+    }
 
     public void addBook(Book book) {
         book.setId(mBookId);
         mBooks.add(book);
         mBookId++;
+    }
+
+    public void addUser(User user) {
+        user.setId(mUserId);
+        mUsers.add(user);
+        mUserId++;
     }
 
     public void listBooksThatExists() {
@@ -43,6 +57,8 @@ public class LibraryService {
 
         Reservation res = new Reservation(user, startDate, endDate, book);
         mReservations.add(res);
+
+        System.out.println("Rezervare adaugata.");
     }
 
     private boolean checkAvailability(Book book, Date startDate, Date endDate) {
