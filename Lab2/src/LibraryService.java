@@ -14,10 +14,18 @@ public class LibraryService {
     private static int mBookId = 0;
     private static int mUserId = 0;
 
-    public LibraryService() {
+    private LibraryService instance = null;
+
+    private LibraryService() {
         mUsers = new ArrayList<>();
         mReservations = new ArrayList<>();
         mBooks = new ArrayList<>();
+    }
+
+    public LibraryService getInstance() {
+        if (instance == null)
+            instance = new LibraryService();
+        return instance;
     }
 
     public void addBook(Book book) {
