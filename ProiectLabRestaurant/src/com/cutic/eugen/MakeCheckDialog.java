@@ -3,16 +3,18 @@ package com.cutic.eugen;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class RegisterUserDialog extends JDialog {
+public class MakeCheckDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textFieldName;
-    private JTextField textField2;
-    private JLabel labelName;
-    private JLabel labelEmail;
+    private JButton buttonApplyVoucher;
+    private JTextField textFieldVoucher;
+    private JComboBox comboBoxCustomer;
+    private JComboBox comboBoxCashCard;
+    private JLabel labelCustomer;
+    private JLabel labelCashCard;
 
-    public RegisterUserDialog() {
+    public MakeCheckDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

@@ -37,14 +37,6 @@
           <text value="New order"/>
         </properties>
       </component>
-      <component id="3f535" class="javax.swing.JComboBox" binding="comboBoxAddProduct">
-        <constraints>
-          <grid row="1" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <toolTipText value="Add Product"/>
-        </properties>
-      </component>
       <component id="85695" class="javax.swing.JLabel" binding="labelOrders">
         <constraints>
           <grid row="1" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
@@ -77,22 +69,6 @@
           <text value="Finish"/>
         </properties>
       </component>
-      <component id="87f53" class="javax.swing.JLabel" binding="labelCheck">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Make check : "/>
-        </properties>
-      </component>
-      <component id="93e3f" class="javax.swing.JComboBox" binding="comboBoxCashorCard">
-        <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <toolTipText value="Cash or card"/>
-        </properties>
-      </component>
       <component id="3c483" class="javax.swing.JComboBox" binding="comboBoxOrders">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -114,6 +90,26 @@
         <properties>
           <text value="Delete this order"/>
         </properties>
+      </component>
+      <component id="25b72" class="javax.swing.JButton" binding="buttonMakeCheck">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Make check"/>
+        </properties>
+      </component>
+      <component id="40083" class="javax.swing.JComboBox" binding="comboBoxAddFood">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="68ab0" class="javax.swing.JComboBox" binding="comboBoxAddDrink">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

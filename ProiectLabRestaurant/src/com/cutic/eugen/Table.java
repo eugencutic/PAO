@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Table {
     private int mId;
     private static int mNextId = 0;
-    private boolean mIsAvailable;
+    private boolean mIsAvailable = true;
     private ArrayList<Order> mOrders;
 
     public Table() {
@@ -14,11 +14,12 @@ public class Table {
         mOrders = new ArrayList<>();
     }
 
-    public Table(boolean mIsAvailable) {
-        this.mId = mNextId;
-        mNextId++;
+    public boolean isAvailable() {
+        return mIsAvailable;
+    }
+
+    public void setAvailable(boolean mIsAvailable) {
         this.mIsAvailable = mIsAvailable;
-        mOrders = new ArrayList<>();
     }
 
     public void addOrder(Order order) {

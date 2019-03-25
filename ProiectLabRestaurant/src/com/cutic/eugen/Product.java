@@ -42,4 +42,9 @@ public class Product {
     public void setQuantityAvailable(int mQuantityAvailable) {
         this.mQuantityAvailable = mQuantityAvailable;
     }
+
+    @Override
+    public String toString() {
+        return mName;
+    }
 }

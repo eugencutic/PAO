@@ -13,11 +13,12 @@ public class Customer {
         mNextId++;
     }
 
-    public Customer(String mName, String mEmail) {
+    public Customer(String mName, String mEmail, boolean mRegular) {
         mId = mNextId;
         mNextId++;
         this.mName = mName;
         this.mEmail = mEmail;
+        this.mRegular = mRegular;
     }
 
     public String getName() {
