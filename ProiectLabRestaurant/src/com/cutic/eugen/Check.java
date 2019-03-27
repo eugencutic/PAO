@@ -19,7 +19,7 @@ public class Check {
     }
 
     public void checkout() {
-        for (Order order : mOrders) {
+        /*for (Order order : mOrders) {
             for (Pair<Integer, Integer> item : order.getProducts()) {
                 Product product = RestaurantService.getProductById(item.getKey());
                 if (product != null) {
@@ -32,6 +32,7 @@ public class Check {
                     mTotal += item.getValue() * price;
                 }
             }
-        }
+        }*/
+        //TODO: rewrite checkout for hashmap
     }
 }

@@ -4,9 +4,13 @@ import javax.swing.*;
 import javax.swing.event.ListDataListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class WaiterGUI {
@@ -15,7 +19,7 @@ public class WaiterGUI {
     private JComboBox comboBoxTables;
     private JLabel labelOrders;
     private JButton buttonNewOrder;
-    private JTextArea textArea2;
+    private JTextArea textAreaNewOrder;
     private JButton buttonDeleteLastProduct;
     private JButton buttonFinishOrder;
     private JComboBox comboBoxOrders;
@@ -25,13 +29,78 @@ public class WaiterGUI {
     private JComboBox comboBoxAddFood;
     private JComboBox comboBoxAddDrink;
 
+    private Order mNewOrder = null;
+
     public WaiterGUI() {
         buttonNewOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Add new order
+                comboBoxAddDrink.setEnabled(true);
+                comboBoxAddFood.setEnabled(true);
+                buttonDeleteLastProduct.setEnabled(true);
+                buttonFinishOrder.setEnabled(true);
+                Table table = (Table)comboBoxTables.getSelectedItem();
+                mNewOrder = new Order(table.getId());
             }
         });
+
+        comboBoxAddFood.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    Product product = (Product) e.getItem();
+                    mNewOrder.addProduct(product.getId());
+                    refreshOrderTextArea();
+                }
+            }
+        });
+
+        /*comboBoxAddDrink.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    Product product = (Product) e.getItem();
+                    mNewOrder.addProduct(product.getId());
+                    refreshOrderTextArea();
+                }
+            }
+        });*/
+        //TODO: Make same change for food items
+        comboBoxAddDrink.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Product product = (Product) comboBoxAddDrink.getSelectedItem();
+                mNewOrder.addProduct(product.getId());
+                refreshOrderTextArea();
+            }
+        });
+
+        buttonFinishOrder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comboBoxAddDrink.setEnabled(false);
+                comboBoxAddFood.setEnabled(false);
+                buttonDeleteLastProduct.setEnabled(false);
+                buttonFinishOrder.setEnabled(false);
+                Table table = (Table) comboBoxTables.getSelectedItem();
+                if (mNewOrder != null)
+                    table.addOrder(mNewOrder);
+                mNewOrder = null;
+            }
+        });
+
+        comboBoxTables.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    Table table = (Table) e.getItem();
+                    comboBoxOrders.setModel(
+                            new JComboBox(table.getOrders().toArray()).getModel());
+                }
+            }
+        });
+
+
 
         initRestaurantConfig();
     }
@@ -49,6 +118,7 @@ public class WaiterGUI {
     private void initRestaurantConfig() {
         initDrinks();
         initFood();
+        initTables();
 
         ArrayList<Product> products = RestaurantService.getInstance().getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
@@ -65,6 +135,8 @@ public class WaiterGUI {
 
         this.comboBoxAddDrink.setModel(new JComboBox(drinks.toArray()).getModel());
         this.comboBoxAddFood.setModel(new JComboBox(foodItems.toArray()).getModel());
+        this.comboBoxTables.setModel(
+                new JComboBox(RestaurantService.getInstance().getTables().toArray()).getModel());
     }
 
     private void initFood() {
@@ -107,5 +179,33 @@ public class WaiterGUI {
             RestaurantService.getInstance().addProduct(new Drink(price, quantity, name));
         }
         scanner.close();
+    }
+
+    private void initTables() {
+        File tablesFile = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/tables");
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(tablesFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (scanner == null)
+            return;
+
+        if (scanner.hasNextLine()) {
+            int tablesCount = scanner.nextInt();
+            for (int i = 0; i < tablesCount; i++) {
+                RestaurantService.getInstance().addTable(new Table());
+            }
+        }
+    }
+
+    private void refreshOrderTextArea() {
+        StringBuilder text = new StringBuilder();
+        for (Map.Entry pair : mNewOrder.getProducts().entrySet()) {
+            text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +
+                    " " + pair.getValue() + "\n");
+        }
+        textAreaNewOrder.setText(text.toString());
     }
 }

@@ -25,4 +25,17 @@ public class Table {
     public void addOrder(Order order) {
         mOrders.add(order);
     }
+
+    public ArrayList<Order> getOrders() {
+        return mOrders;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    @Override
+    public String toString() {
+        return "Table " + mId;
+    }
 }

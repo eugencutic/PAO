@@ -31,6 +31,10 @@ public class RestaurantService {
         return mProducts;
     }
 
+    public ArrayList<Table> getTables() {
+        return mTables;
+    }
+
     public static Product getProductById(int id) {
         for (Product prod : mProducts) {
             if (prod.getId() == id)

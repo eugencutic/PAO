@@ -14,6 +14,8 @@ public class Product {
     }
 
     public Product(int mPrice, int mQuantityAvailable, String mName) {
+        this.mId = mNextId;
+        mNextId++;
         this.mPrice = mPrice;
         this.mQuantityAvailable = mQuantityAvailable;
         this.mName = mName;

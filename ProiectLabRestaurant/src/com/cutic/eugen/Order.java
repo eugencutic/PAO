@@ -2,35 +2,57 @@ package com.cutic.eugen;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Order {
     private int mId;
     private int mTableId;
     private static int mNextId = 0;
-    private boolean mWasDeliverd;
-    private ArrayList< Pair<Integer, Integer> > mProducts; //<product id, quantity>
+    private boolean mWasDeliverd = false;
+    private HashMap<Integer, Integer> mProducts; //<product id, quantity>
 
     public Order(int tableId) {
         this.mId = mNextId;
         this.mTableId = tableId;
         mNextId++;
-        mProducts = new ArrayList<>();
+        mProducts = new HashMap<>();
     }
 
     public Order(boolean mWasDeliverd) {
         this.mId = mNextId;
         mNextId++;
         this.mWasDeliverd = mWasDeliverd;
-        mProducts = new ArrayList<>();
+        mProducts = new HashMap<>();
+    }
+
+    public void addProduct(Integer productId) {
+        if (!mProducts.containsKey(productId)) {
+            mProducts.put(productId, 1);
+        }
+        else {
+            mProducts.computeIfPresent(productId, (k, v) -> v + 1);
+        }
     }
 
     public int getTableId() {
         return mTableId;
     }
 
-    public ArrayList<Pair<Integer, Integer>> getProducts() {
+    public boolean wasDeliverd() {
+        return mWasDeliverd;
+    }
+
+    public void setDeliverd(boolean mWasDeliverd) {
+        this.mWasDeliverd = mWasDeliverd;
+    }
+
+    public HashMap<Integer, Integer> getProducts() {
         return mProducts;
+    }
+
+    @Override
+    public String toString() {
+        return "Order " + mId + "(" +
+                (mWasDeliverd ? "Delivered" : "Pending") + ")";
     }
 }
