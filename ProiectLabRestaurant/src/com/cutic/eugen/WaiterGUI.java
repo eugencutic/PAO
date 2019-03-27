@@ -44,34 +44,21 @@ public class WaiterGUI {
             }
         });
 
-        comboBoxAddFood.addItemListener(new ItemListener() {
+        comboBoxAddFood.addActionListener(new ActionListener() {
             @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    Product product = (Product) e.getItem();
-                    mNewOrder.addProduct(product.getId());
-                    refreshOrderTextArea();
-                }
+            public void actionPerformed(ActionEvent e) {
+                Product product = (Product) comboBoxAddFood.getSelectedItem();
+                mNewOrder.addProduct(product.getId());
+                refreshNewOrderTextArea();
             }
         });
 
-        /*comboBoxAddDrink.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    Product product = (Product) e.getItem();
-                    mNewOrder.addProduct(product.getId());
-                    refreshOrderTextArea();
-                }
-            }
-        });*/
-        //TODO: Make same change for food items
         comboBoxAddDrink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Product product = (Product) comboBoxAddDrink.getSelectedItem();
                 mNewOrder.addProduct(product.getId());
-                refreshOrderTextArea();
+                refreshNewOrderTextArea();
             }
         });
 
@@ -86,6 +73,11 @@ public class WaiterGUI {
                 if (mNewOrder != null)
                     table.addOrder(mNewOrder);
                 mNewOrder = null;
+
+                comboBoxOrders.setModel(
+                        new JComboBox(table.getOrders().toArray()).getModel());
+                refreshSelectedOrderTextArea();
+                textAreaNewOrder.setText("");
             }
         });
 
@@ -96,11 +88,17 @@ public class WaiterGUI {
                     Table table = (Table) e.getItem();
                     comboBoxOrders.setModel(
                             new JComboBox(table.getOrders().toArray()).getModel());
+                    refreshSelectedOrderTextArea();
                 }
             }
         });
 
-
+        comboBoxOrders.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshSelectedOrderTextArea();
+            }
+        });
 
         initRestaurantConfig();
     }
@@ -200,12 +198,26 @@ public class WaiterGUI {
         }
     }
 
-    private void refreshOrderTextArea() {
+    private void refreshNewOrderTextArea() {
         StringBuilder text = new StringBuilder();
         for (Map.Entry pair : mNewOrder.getProducts().entrySet()) {
             text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +
                     " " + pair.getValue() + "\n");
         }
         textAreaNewOrder.setText(text.toString());
+    }
+
+    private void refreshSelectedOrderTextArea() {
+        StringBuilder text = new StringBuilder();
+        Order order = (Order)comboBoxOrders.getSelectedItem();
+        if (order == null) {
+            textAreaOrder.setText("");
+            return;
+        }
+        for (Map.Entry pair : order.getProducts().entrySet()) {
+            text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +
+                    " " + pair.getValue() + "\n");
+        }
+        textAreaOrder.setText(text.toString());
     }
 }
