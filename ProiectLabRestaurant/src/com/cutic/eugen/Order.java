@@ -55,4 +55,13 @@ public class Order {
         return "Order " + mId + "(" +
                 (mWasDeliverd ? "Delivered" : "Pending") + ")";
     }
+
+    public void removeProduct(Integer productId) {
+        if (mProducts.containsKey(productId)) {
+            if (mProducts.get(productId) == 1)
+                mProducts.remove(productId);
+            else
+                mProducts.computeIfPresent(productId, (k, v) -> v - 1);
+        }
+    }
 }

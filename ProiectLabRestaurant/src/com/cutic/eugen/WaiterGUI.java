@@ -1,7 +1,6 @@
 package com.cutic.eugen;
 
 import javax.swing.*;
-import javax.swing.event.ListDataListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -9,7 +8,6 @@ import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -20,7 +18,7 @@ public class WaiterGUI {
     private JLabel labelOrders;
     private JButton buttonNewOrder;
     private JTextArea textAreaNewOrder;
-    private JButton buttonDeleteLastProduct;
+    private JButton buttonCancelOrder;
     private JButton buttonFinishOrder;
     private JComboBox comboBoxOrders;
     private JTextArea textAreaOrder;
@@ -37,7 +35,7 @@ public class WaiterGUI {
             public void actionPerformed(ActionEvent e) {
                 comboBoxAddDrink.setEnabled(true);
                 comboBoxAddFood.setEnabled(true);
-                buttonDeleteLastProduct.setEnabled(true);
+                buttonCancelOrder.setEnabled(true);
                 buttonFinishOrder.setEnabled(true);
                 Table table = (Table)comboBoxTables.getSelectedItem();
                 mNewOrder = new Order(table.getId());
@@ -67,7 +65,7 @@ public class WaiterGUI {
             public void actionPerformed(ActionEvent e) {
                 comboBoxAddDrink.setEnabled(false);
                 comboBoxAddFood.setEnabled(false);
-                buttonDeleteLastProduct.setEnabled(false);
+                buttonCancelOrder.setEnabled(false);
                 buttonFinishOrder.setEnabled(false);
                 Table table = (Table) comboBoxTables.getSelectedItem();
                 if (mNewOrder != null)
@@ -77,7 +75,7 @@ public class WaiterGUI {
                 comboBoxOrders.setModel(
                         new JComboBox(table.getOrders().toArray()).getModel());
                 refreshSelectedOrderTextArea();
-                textAreaNewOrder.setText("");
+                refreshNewOrderTextArea();
             }
         });
 
@@ -96,6 +94,30 @@ public class WaiterGUI {
         comboBoxOrders.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                refreshSelectedOrderTextArea();
+            }
+        });
+
+        buttonCancelOrder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comboBoxAddDrink.setEnabled(false);
+                comboBoxAddFood.setEnabled(false);
+                buttonCancelOrder.setEnabled(false);
+                buttonFinishOrder.setEnabled(false);
+
+                mNewOrder = null;
+                refreshNewOrderTextArea();
+            }
+        });
+
+        buttonDeleteOrder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Order order = (Order) comboBoxOrders.getSelectedItem();
+                Table table = (Table) comboBoxTables.getSelectedItem();
+                table.removeOrder(order);
+                comboBoxOrders.setModel(new JComboBox(table.getOrders().toArray()).getModel());
                 refreshSelectedOrderTextArea();
             }
         });
@@ -199,6 +221,11 @@ public class WaiterGUI {
     }
 
     private void refreshNewOrderTextArea() {
+        if (mNewOrder == null) {
+            textAreaNewOrder.setText("");
+            return;
+        }
+
         StringBuilder text = new StringBuilder();
         for (Map.Entry pair : mNewOrder.getProducts().entrySet()) {
             text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +

@@ -38,4 +38,10 @@ public class Table {
     public String toString() {
         return "Table " + mId;
     }
+
+    public void removeOrder(Order order) {
+        if (!mOrders.contains(order))
+            return;
+        mOrders.remove(order);
+    }
 }
