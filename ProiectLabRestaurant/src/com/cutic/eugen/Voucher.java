@@ -20,4 +20,8 @@ public class Voucher {
     public double getPercentage() {
         return mPercentage;
     }
+
+    public String getCode() {
+        return mCode;
+    }
 }

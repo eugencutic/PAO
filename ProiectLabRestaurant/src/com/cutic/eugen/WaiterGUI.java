@@ -1,10 +1,9 @@
 package com.cutic.eugen;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,6 +25,7 @@ public class WaiterGUI {
     private JButton buttonMakeCheck;
     private JComboBox comboBoxAddFood;
     private JComboBox comboBoxAddDrink;
+    private JButton buttonDelivered;
 
     private Order mNewOrder = null;
 
@@ -122,6 +122,33 @@ public class WaiterGUI {
             }
         });
 
+        buttonMakeCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Table table = (Table) comboBoxTables.getSelectedItem();
+                MakeCheckDialog makeCheckDialog = new MakeCheckDialog(table);
+                makeCheckDialog.setSize(600, 450);
+                //TODO: refresh table
+                makeCheckDialog.addWindowStateListener(new WindowStateListener() {
+                    @Override
+                    public void windowStateChanged(WindowEvent e) {
+                        comboBoxOrders.setModel(new JComboBox(table.getOrders().toArray()).getModel());
+                    }
+                });
+                makeCheckDialog.setVisible(true);
+            }
+        });
+
+        buttonDelivered.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Order order = (Order)comboBoxOrders.getSelectedItem();
+                Table table = (Table)comboBoxTables.getSelectedItem();
+                order.setDeliverd(true);
+                comboBoxOrders.setModel(new JComboBox(table.getOrders().toArray()).getModel());
+            }
+        });
+
         initRestaurantConfig();
     }
 
@@ -139,6 +166,7 @@ public class WaiterGUI {
         initDrinks();
         initFood();
         initTables();
+        initVoucher();
 
         ArrayList<Product> products = RestaurantService.getInstance().getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
@@ -157,6 +185,27 @@ public class WaiterGUI {
         this.comboBoxAddFood.setModel(new JComboBox(foodItems.toArray()).getModel());
         this.comboBoxTables.setModel(
                 new JComboBox(RestaurantService.getInstance().getTables().toArray()).getModel());
+    }
+
+    private void initVoucher() {
+        File vouchersFile = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/vouchers");
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(vouchersFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (scanner == null)
+            return;
+
+        while(scanner.hasNextLine()) {
+            String[] line = scanner.nextLine().split(" ");
+            String code = line[0];
+            String name = line[1];
+            int percentage = Integer.parseInt(line[2]);
+            RestaurantService.getInstance().addVoucher(new Voucher(code, name, percentage));
+        }
+        scanner.close();
     }
 
     private void initFood() {
@@ -228,7 +277,7 @@ public class WaiterGUI {
 
         StringBuilder text = new StringBuilder();
         for (Map.Entry pair : mNewOrder.getProducts().entrySet()) {
-            text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +
+            text.append(RestaurantService.getInstance().getProductById((int)pair.getKey()).toString() +
                     " " + pair.getValue() + "\n");
         }
         textAreaNewOrder.setText(text.toString());
@@ -242,7 +291,7 @@ public class WaiterGUI {
             return;
         }
         for (Map.Entry pair : order.getProducts().entrySet()) {
-            text.append(RestaurantService.getProductById((int)pair.getKey()).toString() +
+            text.append(RestaurantService.getInstance().getProductById((int)pair.getKey()).toString() +
                     " " + pair.getValue() + "\n");
         }
         textAreaOrder.setText(text.toString());

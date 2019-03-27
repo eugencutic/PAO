@@ -44,4 +44,8 @@ public class Table {
             return;
         mOrders.remove(order);
     }
+
+    public void refreshOrders() {
+        mOrders = new ArrayList<>();
+    }
 }

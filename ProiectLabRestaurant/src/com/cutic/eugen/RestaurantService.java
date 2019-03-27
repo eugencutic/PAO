@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class RestaurantService {
     private static RestaurantService instance = null;
 
-    private static ArrayList<Product> mProducts;
-    private static ArrayList<Table> mTables;
+    private ArrayList<Product> mProducts;
+    private ArrayList<Table> mTables;
+    private ArrayList<Voucher> mVouchers;
 
     private RestaurantService(){
         mProducts = new ArrayList<>();
         mTables = new ArrayList<>();
+        mVouchers = new ArrayList<>();
     }
 
     public static RestaurantService getInstance() {
@@ -35,10 +37,22 @@ public class RestaurantService {
         return mTables;
     }
 
-    public static Product getProductById(int id) {
+    public Product getProductById(int id) {
         for (Product prod : mProducts) {
             if (prod.getId() == id)
                 return prod;
+        }
+        return null;
+    }
+
+    public void addVoucher(Voucher voucher) {
+        mVouchers.add(voucher);
+    }
+
+    public Voucher getVoucherByCode(String code) {
+        for (Voucher voucher : mVouchers) {
+            if (voucher.getCode().equals(code))
+                return voucher;
         }
         return null;
     }

@@ -1,38 +1,53 @@
 package com.cutic.eugen;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
 
 public class Check {
-    private final ArrayList<Order> mOrders;
-    private ArrayList<Voucher> mVouchers;
+    private final Table mTable;
+    private HashSet<Voucher> mVouchers;
     private double mTotal = 0;
     private Customer mCustomer;
 
-    public Check(ArrayList<Order> mOrders) {
-        this.mOrders = mOrders;
+    public Check(Table table) {
+        this.mTable = table;
+        mVouchers = new HashSet<>();
     }
 
     public void applyVoucher(Voucher voucher) {
         mVouchers.add(voucher);
     }
 
+    public double getTotal() {
+        return mTotal;
+    }
+
+    //TODO: test checkout
     public void checkout() {
-        /*for (Order order : mOrders) {
-            for (Pair<Integer, Integer> item : order.getProducts()) {
-                Product product = RestaurantService.getProductById(item.getKey());
-                if (product != null) {
-                    double price = product.getPrice();
-                    for (Voucher voucher: mVouchers) {
-                        if (product.getName().equals(voucher.getProductName())) {
-                            price -= price * voucher.getPercentage();
+        ArrayList<Order> orders = mTable.getOrders();
+        for (Order order : orders) {
+            if (order.wasDeliverd()) {
+                for (Map.Entry item : order.getProducts().entrySet()) {
+                    double price = 0;
+                    Product product = RestaurantService.getInstance().getProductById((int)item.getKey());
+                    int quantity = (int)item.getValue();
+                    price = product.getPrice();
+                    for (Voucher voucher : mVouchers) {
+                        if (voucher.getProductName().equals(product.getName())) {
+                            price -= price * (voucher.getPercentage() / 100);
                         }
                     }
-                    mTotal += item.getValue() * price;
+                    mTotal += price * quantity;
                 }
             }
-        }*/
-        //TODO: rewrite checkout for hashmap
+        }
+    }
+
+    public void refreshTable() {
+        mTable.refreshOrders();
     }
 }

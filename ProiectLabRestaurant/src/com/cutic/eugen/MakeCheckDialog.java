@@ -2,6 +2,7 @@ package com.cutic.eugen;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class MakeCheckDialog extends JDialog {
     private JPanel contentPane;
@@ -14,10 +15,26 @@ public class MakeCheckDialog extends JDialog {
     private JLabel labelCustomer;
     private JLabel labelCashCard;
 
-    public MakeCheckDialog() {
+    private Check mCheck;
+
+    public MakeCheckDialog(Table table) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        mCheck = new Check(table);
+
+        buttonApplyVoucher.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String code = textFieldVoucher.getText();
+                Voucher voucher = RestaurantService.getInstance().getVoucherByCode(code);
+                if (voucher != null) {
+                    mCheck.applyVoucher(voucher);
+                }
+                textFieldVoucher.setText("");
+            }
+        });
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +65,9 @@ public class MakeCheckDialog extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
+        mCheck.checkout();
+        mCheck.refreshTable();
+
         dispose();
     }
 
