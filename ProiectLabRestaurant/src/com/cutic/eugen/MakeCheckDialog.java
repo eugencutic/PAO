@@ -23,6 +23,11 @@ public class MakeCheckDialog extends JDialog {
         getRootPane().setDefaultButton(buttonOK);
 
         mCheck = new Check(table);
+        comboBoxCustomer.setModel(new JComboBox(RestaurantService.getInstance().getCustomers().toArray()).getModel());
+        ArrayList<String> cashOrCard = new ArrayList<>();
+        cashOrCard.add("Cash");
+        cashOrCard.add("Card");
+        comboBoxCashCard.setModel(new JComboBox(cashOrCard.toArray()).getModel());
 
         buttonApplyVoucher.addActionListener(new ActionListener() {
             @Override
@@ -65,9 +70,25 @@ public class MakeCheckDialog extends JDialog {
     }
 
     private void onOK() {
+        Customer customer = (Customer) comboBoxCustomer.getSelectedItem();
+        String paymentString = (String) comboBoxCashCard.getSelectedItem();
+        if (paymentString.equals("Card")) {
+            mCheck.setCard();
+        } else {
+            mCheck.setCash();
+        }
+        mCheck.setCustomer(customer);
+        customer.addVisit();
         mCheck.checkout();
-        mCheck.refreshTable();
 
+        RestaurantService.getInstance().refreshCustomersFile();
+
+        CheckDetailsDialog checkDetailsDialog = new CheckDetailsDialog(mCheck);
+        checkDetailsDialog.setSize(400, 400);
+        checkDetailsDialog.setLocationRelativeTo(null);
+        checkDetailsDialog.setVisible(true);
+
+        mCheck.refreshTable();
         dispose();
     }
 

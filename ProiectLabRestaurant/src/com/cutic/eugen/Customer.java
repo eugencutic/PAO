@@ -6,19 +6,20 @@ public class Customer {
     private String mName;
     private String mEmail;
     private boolean mRegular = false;
-    private int mVisits = 0;
+    private int mVisits = 1;
 
     public Customer() {
         mId = mNextId;
         mNextId++;
     }
 
-    public Customer(String mName, String mEmail, boolean mRegular) {
+    public Customer(String mName, String mEmail, int visits) {
         mId = mNextId;
         mNextId++;
         this.mName = mName;
         this.mEmail = mEmail;
-        this.mRegular = mRegular;
+        this.mVisits = visits;
+        this.mRegular = this.mVisits > 5;
     }
 
     public String getName() {
@@ -43,5 +44,19 @@ public class Customer {
 
     public void setRegular(boolean mRegular) {
         this.mRegular = mRegular;
+    }
+
+    public String toFileFormatString() {
+        return mVisits + "*" +  mName + "*" + mEmail + "\n";
+    }
+
+    @Override
+    public String toString() {
+        return "Customer: " + mName + "\n";
+    }
+
+    public void addVisit() {
+        mVisits++;
+        mRegular = mVisits > 5;
     }
 }

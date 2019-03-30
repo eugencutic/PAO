@@ -13,20 +13,47 @@ public class Check {
     private double mTotal = 0;
     private Customer mCustomer;
 
+    public enum Payment {CASH, CARD};
+    private Payment mPaymentMethod = Payment.CASH;
+
+
     public Check(Table table) {
         this.mTable = table;
         mVouchers = new HashSet<>();
+    }
+
+    public HashSet<Voucher> getVouchers() {
+        return mVouchers;
+    }
+
+    public Table getTable() {
+        return mTable;
     }
 
     public void applyVoucher(Voucher voucher) {
         mVouchers.add(voucher);
     }
 
+    public void setCash() {
+        mPaymentMethod = Payment.CASH;
+    }
+
+    public void setCard() {
+        mPaymentMethod = Payment.CARD;
+    }
+
     public double getTotal() {
         return mTotal;
     }
 
-    //TODO: test checkout
+    public Customer getCustomer() {
+        return mCustomer;
+    }
+
+    public void setCustomer(Customer mCustomer) {
+        this.mCustomer = mCustomer;
+    }
+
     public void checkout() {
         ArrayList<Order> orders = mTable.getOrders();
         for (Order order : orders) {
@@ -44,6 +71,10 @@ public class Check {
                     mTotal += price * quantity;
                 }
             }
+        }
+
+        if (mCustomer.isRegular()) {
+            mTotal -= mTotal * 0.1;
         }
     }
 

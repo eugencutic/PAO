@@ -26,6 +26,7 @@ public class WaiterGUI {
     private JComboBox comboBoxAddFood;
     private JComboBox comboBoxAddDrink;
     private JButton buttonDelivered;
+    private JButton buttonRegisterCustomer;
 
     private Order mNewOrder = null;
 
@@ -127,12 +128,15 @@ public class WaiterGUI {
             public void actionPerformed(ActionEvent e) {
                 Table table = (Table) comboBoxTables.getSelectedItem();
                 MakeCheckDialog makeCheckDialog = new MakeCheckDialog(table);
-                makeCheckDialog.setSize(600, 450);
+                makeCheckDialog.setSize(450, 300);
+                makeCheckDialog.setLocationRelativeTo(null);
                 //TODO: refresh table
-                makeCheckDialog.addWindowStateListener(new WindowStateListener() {
+                makeCheckDialog.addWindowListener(new WindowAdapter() {
                     @Override
-                    public void windowStateChanged(WindowEvent e) {
+                    public void windowClosed(WindowEvent e) {
+                        super.windowClosed(e);
                         comboBoxOrders.setModel(new JComboBox(table.getOrders().toArray()).getModel());
+                        refreshSelectedOrderTextArea();
                     }
                 });
                 makeCheckDialog.setVisible(true);
@@ -146,6 +150,16 @@ public class WaiterGUI {
                 Table table = (Table)comboBoxTables.getSelectedItem();
                 order.setDeliverd(true);
                 comboBoxOrders.setModel(new JComboBox(table.getOrders().toArray()).getModel());
+            }
+        });
+
+        buttonRegisterCustomer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddCustomerDialog addCustomerDialog = new AddCustomerDialog();
+                addCustomerDialog.setSize(450, 300);
+                addCustomerDialog.setLocationRelativeTo(null);
+                addCustomerDialog.setVisible(true);
             }
         });
 
@@ -167,6 +181,7 @@ public class WaiterGUI {
         initFood();
         initTables();
         initVoucher();
+        initCustomers();
 
         ArrayList<Product> products = RestaurantService.getInstance().getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
@@ -187,8 +202,31 @@ public class WaiterGUI {
                 new JComboBox(RestaurantService.getInstance().getTables().toArray()).getModel());
     }
 
+    private void initCustomers() {
+        File customersFile = new File(Const.CUSTOMERS_PATH);
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(customersFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (scanner == null)
+            return;
+
+        while(scanner.hasNextLine()) {
+            String[] line = scanner.nextLine().split("\\*");
+            if (line[0].equals(""))
+                return;
+            int visits = Integer.parseInt(line[0]);
+            String name = line[1];
+            String email = line[2];
+            RestaurantService.getInstance().addCustomer(new Customer(name, email, visits));
+        }
+        scanner.close();
+    }
+
     private void initVoucher() {
-        File vouchersFile = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/vouchers");
+        File vouchersFile = new File(Const.VOUCHERS_PATH);
         Scanner scanner = null;
         try {
             scanner = new Scanner(vouchersFile);
@@ -209,7 +247,7 @@ public class WaiterGUI {
     }
 
     private void initFood() {
-        File foodMenu = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/foodMenu");
+        File foodMenu = new File(Const.FOOD_MENU_PATH);
         Scanner scanner = null;
         try {
             scanner = new Scanner(foodMenu);
@@ -230,7 +268,7 @@ public class WaiterGUI {
     }
 
     private void initDrinks(){
-        File drinkMenu = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/drinkMenu");
+        File drinkMenu = new File(Const.DRINK_MENU_PATH);
         Scanner scanner = null;
         try {
             scanner = new Scanner(drinkMenu);
@@ -251,7 +289,7 @@ public class WaiterGUI {
     }
 
     private void initTables() {
-        File tablesFile = new File("F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/tables");
+        File tablesFile = new File(Const.TABLES_PATH);
         Scanner scanner = null;
         try {
             scanner = new Scanner(tablesFile);

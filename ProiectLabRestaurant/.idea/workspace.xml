@@ -2,30 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b8a64f9-27ad-4f35-97d3-d903c1f63fb0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab2/src/RegexTestPatternMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab2/src/RegexTestPatternMatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Check.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Check.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/MakeCheckDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RegisterUserDialog$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RegisterUserDialog$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RegisterUserDialog$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RegisterUserDialog$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RegisterUserDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RestaurantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/RestaurantService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Voucher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/Voucher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$9$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/WaiterGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/vouchers" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/vouchers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/customers" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/customers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProiectLabRestaurant/com/cutic/eugen/regularCustomers" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/Check.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/Check.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/vouchers" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/vouchers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/customers" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cutic/eugen/customers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cutic/eugen/regularCustomers" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,101 +40,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form">
+        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#972:1423" />
-                <element signature="class#1473:1771" />
-                <element signature="class#1822:2121" />
-                <element signature="class#2173:2908" />
-                <element signature="class#2955:3391" />
-                <element signature="class#3440:3609" />
-                <element signature="e#3536#3537#0" expanded="true" />
-                <element signature="e#3598#3599#0" expanded="true" />
-                <element signature="class#3661:4069" />
-                <element signature="class#4121:4572" />
-                <element signature="method#initDrinks#0;class#WaiterGUI#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-              <folding>
-                <element signature="e#535#536#0" expanded="true" />
-                <element signature="e#562#563#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Check.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#481#482#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-                <element signature="e#1493#1494#0" expanded="true" />
-                <element signature="e#1514#1515#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
-              <folding>
-                <element signature="e#1318#1319#0" expanded="true" />
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1969#1970#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/vouchers">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Table.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-              <folding>
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#994#995#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="324">
+              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -139,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="578">
               <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -157,18 +74,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java">
+        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Check.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+            <state relative-caret-position="-135">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding>
-                <element signature="e#655#656#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="e#1127#1128#0" expanded="true" />
-                <element signature="e#1151#1152#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#582#583#0" expanded="true" />
+                <element signature="e#613#614#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
+                <element signature="e#737#738#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#630#631#0" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#714#715#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+                <element signature="e#2131#2132#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -205,18 +139,25 @@
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/tables" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/drinkMenu" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/foodMenu" />
-        <option value="$PROJECT_DIR$/src/com/cutic/eugen/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/Drink.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/Product.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/Order.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/vouchers" />
-        <option value="$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java" />
-        <option value="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form" />
-        <option value="$PROJECT_DIR$/src/com/cutic/eugen/Check.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/Table.java" />
-        <option value="$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/AddCustomerDialog.form" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/RegexTestPatternMatcher.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/Const.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/customers" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/AddCustomerDialog.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.form" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/Check.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java" />
+        <option value="$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.java" />
       </list>
     </option>
   </component>
@@ -232,7 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -257,6 +197,20 @@
               <item name="ProiectLabRestaurant" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="eugen" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCustomerDialog" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="ProiectLabRestaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProiectLabRestaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="eugen" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckDetailsDialog" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="ProiectLabRestaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProiectLabRestaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="eugen" type="462c0819:PsiDirectoryNode" />
               <item name="MakeCheckDialog" type="e9f4de52:FormNode" />
             </path>
             <path>
@@ -270,12 +224,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cutic.eugen" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.cutic.eugen" />
     </key>
@@ -333,21 +291,31 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2872483" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -360,7 +328,7 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2872483" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -371,7 +339,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -387,13 +355,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/DrinksMenu.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Menu.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RegisterUserDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RegisterUserDialog.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/configRestaurant" />
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/FoodItem.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -402,28 +364,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RegisterUserDialog.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RegisterUserDialog.form" />
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/regularCustomers">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Drink.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -460,12 +403,174 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/vouchers">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding>
+            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#995#996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RegexTestPatternMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="53" lean-forward="true" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="109" selection-start-line="7" selection-start-column="109" selection-end-line="7" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/AddCustomerDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="64" column="46" lean-forward="true" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+          <folding>
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1473#1825#0" expanded="true" />
+            <element signature="e#1824#1825#0" expanded="true" />
+            <element signature="e#1876#2228#0" expanded="true" />
+            <element signature="e#2227#2228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding>
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/customers">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/AddCustomerDialog.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="160" column="60" selection-start-line="160" selection-start-column="60" selection-end-line="160" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3557#3558#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#5030#5230#0" expanded="true" />
+            <element signature="e#5229#5230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Check.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#2131#2132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="578">
           <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -481,102 +586,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/vouchers">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/RestaurantService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-          <folding>
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Voucher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding>
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding>
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/MakeCheckDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/Check.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/CheckDetailsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cutic/eugen/WaiterGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#972:1423" />
-            <element signature="class#1473:1771" />
-            <element signature="class#1822:2121" />
-            <element signature="class#2173:2908" />
-            <element signature="class#2955:3391" />
-            <element signature="class#3440:3609" />
-            <element signature="e#3536#3537#0" expanded="true" />
-            <element signature="e#3598#3599#0" expanded="true" />
-            <element signature="class#3661:4069" />
-            <element signature="class#4121:4572" />
-            <element signature="method#initDrinks#0;class#WaiterGUI#0" />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
