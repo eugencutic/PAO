@@ -24,4 +24,8 @@ public class Voucher {
     public String getCode() {
         return mCode;
     }
+
+    public String toFileFormatString() {
+        return mCode + " " + mProductName + " " + mPercentage;
+    }
 }

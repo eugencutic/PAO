@@ -19,18 +19,40 @@ public class RestaurantService {
     private ArrayList<Voucher> mVouchers;
     private ArrayList<Customer> mCustomers;
 
+    private CustomerRepository mCustomerRepo;
+    private VoucherRepository mVoucherRepo;
+    private TableRepository mTableRepo;
 
     private RestaurantService(){
         mProducts = new ArrayList<>();
         mTables = new ArrayList<>();
         mVouchers = new ArrayList<>();
         mCustomers = new ArrayList<>();
+
+        mCustomerRepo = new CustomerRepository();
+        mVoucherRepo = new VoucherRepository();
+        mTableRepo = new TableRepository();
+        initCustomers();
+        initVouchers();
+        initTables();
     }
 
     public static RestaurantService getInstance() {
         if (instance == null)
             instance = new RestaurantService();
         return instance;
+    }
+
+    public void initCustomers() {
+        mCustomers = mCustomerRepo.readRecordsFromFile();
+    }
+
+    public void initVouchers() {
+        mVouchers = mVoucherRepo.readRecordsFromFile();
+    }
+
+    private void initTables() {
+        mTables = mTableRepo.readRecordsFromFile();
     }
 
     public ArrayList<Customer> getCustomers() {
@@ -78,13 +100,10 @@ public class RestaurantService {
     }
 
     public void refreshCustomersFile() {
-        try (FileWriter fw = new FileWriter(Const.CUSTOMERS_PATH)) {
-            for(Customer customer : mCustomers) {
-                fw.write(customer.toFileFormatString());
-            }
-            fw.flush();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        mCustomerRepo.writeRecordsToFile(mCustomers);
+    }
+
+    public void refreshVouchersFile() {
+        mVoucherRepo.writeRecordsToFile(mVouchers);
     }
 }

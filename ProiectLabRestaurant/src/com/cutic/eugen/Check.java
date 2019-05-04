@@ -78,6 +78,20 @@ public class Check {
         }
     }
 
+    public Payment getPaymentMethod() {
+        return mPaymentMethod;
+    }
+
+    public String getPaymentMethodToString() {
+        switch (mPaymentMethod) {
+            case CASH:
+                return "Cash";
+            case CARD:
+                return "Card";
+        }
+        return "";
+    }
+
     public void refreshTable() {
         mTable.refreshOrders();
     }

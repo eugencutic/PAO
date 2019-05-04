@@ -61,12 +61,16 @@ public class CheckDetailsDialog extends JDialog {
             details.append("\n");
         }
 
+        details.append("Payment method: ");
+        details.append(mCheck.getPaymentMethodToString());
+        details.append("\n");
+
         details.append(mCheck.getTotal());
         textPaneDetails.setText(details.toString());
     }
 
     private void onOK() {
-        // add your code here
+
         dispose();
     }
 }

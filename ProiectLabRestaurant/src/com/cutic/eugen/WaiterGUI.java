@@ -30,7 +30,11 @@ public class WaiterGUI {
 
     private Order mNewOrder = null;
 
+    private RestaurantService restaurantService;
+
     public WaiterGUI() {
+        restaurantService = RestaurantService.getInstance();
+
         buttonNewOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -179,9 +183,6 @@ public class WaiterGUI {
     private void initRestaurantConfig() {
         initDrinks();
         initFood();
-        initTables();
-        initVoucher();
-        initCustomers();
 
         ArrayList<Product> products = RestaurantService.getInstance().getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
@@ -200,50 +201,6 @@ public class WaiterGUI {
         this.comboBoxAddFood.setModel(new JComboBox(foodItems.toArray()).getModel());
         this.comboBoxTables.setModel(
                 new JComboBox(RestaurantService.getInstance().getTables().toArray()).getModel());
-    }
-
-    private void initCustomers() {
-        File customersFile = new File(Const.CUSTOMERS_PATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(customersFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (scanner == null)
-            return;
-
-        while(scanner.hasNextLine()) {
-            String[] line = scanner.nextLine().split("\\*");
-            if (line[0].equals(""))
-                return;
-            int visits = Integer.parseInt(line[0]);
-            String name = line[1];
-            String email = line[2];
-            RestaurantService.getInstance().addCustomer(new Customer(name, email, visits));
-        }
-        scanner.close();
-    }
-
-    private void initVoucher() {
-        File vouchersFile = new File(Const.VOUCHERS_PATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(vouchersFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (scanner == null)
-            return;
-
-        while(scanner.hasNextLine()) {
-            String[] line = scanner.nextLine().split(" ");
-            String code = line[0];
-            String name = line[1];
-            int percentage = Integer.parseInt(line[2]);
-            RestaurantService.getInstance().addVoucher(new Voucher(code, name, percentage));
-        }
-        scanner.close();
     }
 
     private void initFood() {
@@ -286,25 +243,6 @@ public class WaiterGUI {
             RestaurantService.getInstance().addProduct(new Drink(price, quantity, name));
         }
         scanner.close();
-    }
-
-    private void initTables() {
-        File tablesFile = new File(Const.TABLES_PATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(tablesFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (scanner == null)
-            return;
-
-        if (scanner.hasNextLine()) {
-            int tablesCount = scanner.nextInt();
-            for (int i = 0; i < tablesCount; i++) {
-                RestaurantService.getInstance().addTable(new Table());
-            }
-        }
     }
 
     private void refreshNewOrderTextArea() {
