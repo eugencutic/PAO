@@ -46,4 +46,15 @@ public class CustomerRepository{
             ex.printStackTrace();
         }
     }
+
+    public void appendRecordToFile(Customer customer) {
+        File customersFile = new File(Const.CUSTOMERS_PATH);
+
+        try(FileWriter fw = new FileWriter(customersFile, true)) {
+            fw.write("\n");
+            fw.write(customer.toFileFormatString());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

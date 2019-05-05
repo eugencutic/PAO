@@ -2,6 +2,8 @@ package com.cutic.eugen;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,5 +27,21 @@ public class TableRepository {
             }
         }
         return tables;
+    }
+
+    public void writeTableCount(int count) {
+        File tablesFile = new File(Const.TABLES_PATH);
+        File temp = new File(Const.TABLES_PATH + "temp");
+
+        try(FileWriter fw = new FileWriter(temp)) {
+            fw.write(count);
+            fw.write("\n");
+            fw.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        boolean delete = tablesFile.delete();
+        boolean b = temp.renameTo(tablesFile);
     }
 }

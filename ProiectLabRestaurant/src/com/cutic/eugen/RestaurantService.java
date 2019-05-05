@@ -76,10 +76,12 @@ public class RestaurantService {
 
     public void addProduct(Product product) {
         mProducts.add(product);
+        mProductRepo.appendRecordToFile(product);
     }
 
     public void addCustomer(Customer customer) {
         mCustomers.add(customer);
+        mCustomerRepo.appendRecordToFile(customer);
     }
 
     public ArrayList<Product> getProducts() {
@@ -88,6 +90,10 @@ public class RestaurantService {
 
     public ArrayList<Table> getTables() {
         return mTables;
+    }
+
+    public void setTableCount(int count) {
+        mTableRepo.writeTableCount(count);
     }
 
     public Product getProductById(int id) {
@@ -122,5 +128,10 @@ public class RestaurantService {
 
     public void refreshVouchersFile() {
         mVoucherRepo.writeRecordsToFile(mVouchers);
+    }
+
+    public void deleteProduct(Product product) {
+        mProducts.remove(product);
+        mProductRepo.deleteRecordFromFile(product);
     }
 }

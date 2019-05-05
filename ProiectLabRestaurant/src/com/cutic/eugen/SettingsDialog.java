@@ -21,6 +21,7 @@ public class SettingsDialog extends JDialog {
     private JComboBox comboBoxProducts;
     private JButton buttonDeleteVoucher;
     private JButton buttonDeleteProduct;
+    private JTextField textFieldQuantity;
 
     private RestaurantService restaurantService;
 
@@ -57,6 +58,71 @@ public class SettingsDialog extends JDialog {
 
         buttonAddVoucher.addActionListener((e) -> onAddVoucher());
         buttonDeleteVoucher.addActionListener((e) -> onDeleteVoucher());
+        buttonAddProduct.addActionListener((e) -> onAddProduct());
+        buttonDeleteProduct.addActionListener((e) -> onDeleteProduct());
+        buttonSetTableCount.addActionListener((e) -> onSetTableCount());
+    }
+
+    private void onSetTableCount() {
+        int count;
+        try {
+            count = Integer.parseInt(textFieldTableCount.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(contentPane, "Table count not valid.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        restaurantService.setTableCount(count);
+    }
+
+    private void onDeleteProduct() {
+        Product product = (Product) comboBoxDeleteProduct.getSelectedItem();
+        restaurantService.deleteProduct(product);
+        comboBoxDeleteProduct.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+        comboBoxProducts.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+    }
+
+    private void onAddProduct() {
+        String type;
+        if (drinkRadioButton.isSelected()) {
+            type = "drink";
+        } else if (foodRadioButton.isSelected()) {
+            type = "food";
+        } else {
+            JOptionPane.showMessageDialog(contentPane, "Choose product type.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String name = textFieldProductName.getText();
+        String priceString = textFieldProductPrice.getText();
+        String quantityString = textFieldQuantity.getText();
+        int priceValue;
+        int quantityValue;
+        try {
+            priceValue = Integer.parseInt(priceString);
+            quantityValue = Integer.parseInt(quantityString);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(contentPane, "Price or quantity not valid.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (type.equals("drink")) {
+            restaurantService.addProduct(new Drink(priceValue, quantityValue, name));
+        } else {
+            restaurantService.addProduct(new FoodItem(priceValue, quantityValue, name));
+        }
+
+        comboBoxDeleteProduct.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+        comboBoxProducts.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+
+        textFieldProductName.setText("");
+        textFieldQuantity.setText("");
+        textFieldProductPrice.setText("");
+        drinkRadioButton.setSelected(false);
+        foodRadioButton.setSelected(false);
+
     }
 
     private void onAddVoucher() {

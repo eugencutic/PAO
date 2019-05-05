@@ -49,4 +49,8 @@ public class Product {
     public String toString() {
         return mName;
     }
+
+    public String toFileFormatString() {
+        return mPrice + " " + mQuantityAvailable + " " + mName;
+    }
 }

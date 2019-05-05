@@ -86,7 +86,6 @@ public class AddCustomerDialog extends JDialog {
             return;
 
         RestaurantService.getInstance().addCustomer(new Customer(name, email, 1));
-        RestaurantService.getInstance().refreshCustomersFile();
         dispose();
     }
 
