@@ -1,0 +1,16 @@
+ADDED: Customer{Id=1, Name='blabal', Email='blabla@mail.com', Regular=false, Visits=1}
+ADDED: Customer{Id=2, Name='asdsd', Email='asdasd@mail.com', Regular=false, Visits=1}
+DELETED: Customer{Id=1, Name='blabal', Email='blabla@mail.com', Regular=false, Visits=1}
+DELETED: Customer{Id=2, Name='asdsd', Email='asdasd@mail.com', Regular=false, Visits=1}
+ADDED: Product{Id=7, Price=10, QuantityAvailable=10, Name='food'}
+DELETED: Product{Id=7, Price=10, QuantityAvailable=10, Name='food'}
+CHECK: {Table: 0
+Orders:
+-Pizza * 1
+-Pasta * 1
+Vouchers applied:
+Customer: My Name
+Payment method: Cash
+30.0}
+ADDED: Voucher{Code='code', ProductName='Burger', Percentage=12.0}
+DELETED: Voucher{Code='code', ProductName='Burger', Percentage=12.0}

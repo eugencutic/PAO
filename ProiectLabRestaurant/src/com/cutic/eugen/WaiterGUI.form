@@ -130,20 +130,36 @@
           <text value="Delivered"/>
         </properties>
       </component>
-      <component id="6be71" class="javax.swing.JButton" binding="buttonRegisterCustomer">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Register customer"/>
-        </properties>
-      </component>
       <component id="8838b" class="javax.swing.JButton" binding="buttonSettings">
         <constraints>
           <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Settings"/>
+        </properties>
+      </component>
+      <component id="6be71" class="javax.swing.JButton" binding="buttonRegisterCustomer">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Register customer"/>
+        </properties>
+      </component>
+      <component id="1123e" class="javax.swing.JComboBox" binding="comboBoxCustomers">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model/>
+        </properties>
+      </component>
+      <component id="46ad8" class="javax.swing.JButton" binding="buttonDeleteCustomer">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Delete customer"/>
         </properties>
       </component>
     </children>

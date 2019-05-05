@@ -30,6 +30,14 @@ public class Voucher {
         return mCode;
     }
 
+    public String toLogFormat() {
+        return "Voucher{" +
+                "Code='" + mCode + '\'' +
+                ", ProductName='" + mProductName + '\'' +
+                ", Percentage=" + mPercentage +
+                '}';
+    }
+
     public String toFileFormatString() {
         return mCode + " " + mProductName + " " + mPercentage;
     }

@@ -25,12 +25,12 @@ public class CustomerRepository{
 
         while(scanner.hasNextLine()) {
             String[] line = scanner.nextLine().split("\\*");
-            if (line[0].equals(""))
-                return customers;
-            int visits = Integer.parseInt(line[0]);
-            String name = line[1];
-            String email = line[2];
-            customers.add(new Customer(name, email, visits));
+            if (!line[0].equals("")) {
+                int visits = Integer.parseInt(line[0]);
+                String name = line[1];
+                String email = line[2];
+                customers.add(new Customer(name, email, visits));
+            }
         }
         scanner.close();
         return customers;
@@ -51,10 +51,44 @@ public class CustomerRepository{
         File customersFile = new File(Const.CUSTOMERS_PATH);
 
         try(FileWriter fw = new FileWriter(customersFile, true)) {
-            fw.write("\n");
             fw.write(customer.toFileFormatString());
+            fw.flush();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void deleteRecordFromFile(Customer customer) {
+        File customersFile = new File(Const.CUSTOMERS_PATH);
+        File temp = new File(Const.CUSTOMERS_PATH + "temp");
+
+        try(FileWriter fw = new FileWriter(temp)) {
+            Scanner scanner = null;
+            try {
+                scanner = new Scanner(customersFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (scanner == null)
+                return;
+
+            while(scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] properties = line.split("\\*");
+                String name = properties[1];
+
+                if (!name.equals(customer.getName())) {
+                    fw.write(line);
+                    fw.write("\n");
+                }
+            }
+            fw.flush();
+            scanner.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        boolean delete = customersFile.delete();
+        boolean b = temp.renameTo(customersFile);
     }
 }

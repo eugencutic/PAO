@@ -77,11 +77,13 @@ public class RestaurantService {
     public void addProduct(Product product) {
         mProducts.add(product);
         mProductRepo.appendRecordToFile(product);
+        RestaurantLogging.logProductAdded(product);
     }
 
     public void addCustomer(Customer customer) {
         mCustomers.add(customer);
         mCustomerRepo.appendRecordToFile(customer);
+        RestaurantLogging.logCustomerAdded(customer);
     }
 
     public ArrayList<Product> getProducts() {
@@ -107,11 +109,13 @@ public class RestaurantService {
     public void addVoucher(Voucher voucher) {
         mVouchers.add(voucher);
         mVoucherRepo.appendRecordToFile(voucher);
+        RestaurantLogging.logVoucherAdded(voucher);
     }
 
     public void deleteVoucher(Voucher voucher) {
         mVouchers.remove(voucher);
         mVoucherRepo.deleteRecordFromFile(voucher);
+        RestaurantLogging.logVoucherDeleted(voucher);
     }
 
     public Voucher getVoucherByCode(String code) {
@@ -133,5 +137,12 @@ public class RestaurantService {
     public void deleteProduct(Product product) {
         mProducts.remove(product);
         mProductRepo.deleteRecordFromFile(product);
+        RestaurantLogging.logProductDeleted(product);
+    }
+
+    public void deleteCustomer(Customer customer) {
+        mCustomers.remove(customer);
+        mCustomerRepo.deleteRecordFromFile(customer);
+        RestaurantLogging.logCustomerDeleted(customer);
     }
 }

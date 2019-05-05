@@ -67,6 +67,7 @@ public class CheckDetailsDialog extends JDialog {
 
         details.append(mCheck.getTotal());
         textPaneDetails.setText(details.toString());
+        RestaurantLogging.logCheckDetails(details);
     }
 
     private void onOK() {

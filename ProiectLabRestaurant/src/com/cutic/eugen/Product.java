@@ -50,6 +50,15 @@ public class Product {
         return mName;
     }
 
+    public String toLogFormat() {
+        return "Product{" +
+                "Id=" + mId +
+                ", Price=" + mPrice +
+                ", QuantityAvailable=" + mQuantityAvailable +
+                ", Name='" + mName + '\'' +
+                '}';
+    }
+
     public String toFileFormatString() {
         return mPrice + " " + mQuantityAvailable + " " + mName;
     }

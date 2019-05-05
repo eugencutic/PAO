@@ -55,6 +55,16 @@ public class Customer {
         return "Customer: " + mName + "\n";
     }
 
+    public String toLogFormat() {
+        return "Customer{" +
+                "Id=" + mId +
+                ", Name='" + mName + '\'' +
+                ", Email='" + mEmail + '\'' +
+                ", Regular=" + mRegular +
+                ", Visits=" + mVisits +
+                '}';
+    }
+
     public void addVisit() {
         mVisits++;
         mRegular = mVisits > 5;

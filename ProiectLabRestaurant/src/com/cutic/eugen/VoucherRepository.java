@@ -22,10 +22,12 @@ public class VoucherRepository {
 
         while(scanner.hasNextLine()) {
             String[] line = scanner.nextLine().split(" ");
-            String code = line[0];
-            String name = line[1];
-            double percentage = Double.parseDouble(line[2]);
-            vouchers.add(new Voucher(code, name, percentage));
+            if (!line[0].equals("")) {
+                String code = line[0];
+                String name = line[1];
+                double percentage = Double.parseDouble(line[2]);
+                vouchers.add(new Voucher(code, name, percentage));
+            }
         }
         scanner.close();
         return vouchers;

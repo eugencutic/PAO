@@ -28,6 +28,8 @@ public class WaiterGUI {
     private JButton buttonDelivered;
     private JButton buttonRegisterCustomer;
     private JButton buttonSettings;
+    private JComboBox comboBoxCustomers;
+    private JButton buttonDeleteCustomer;
 
     private Order mNewOrder = null;
 
@@ -164,11 +166,45 @@ public class WaiterGUI {
                 AddCustomerDialog addCustomerDialog = new AddCustomerDialog();
                 addCustomerDialog.setSize(450, 300);
                 addCustomerDialog.setLocationRelativeTo(null);
+
+                addCustomerDialog.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        super.windowClosed(e);
+                        comboBoxCustomers.setModel(new JComboBox(restaurantService.getCustomers().toArray()).getModel());
+                    }
+                });
+
                 addCustomerDialog.setVisible(true);
             }
         });
 
-        initRestaurantConfig();
+        buttonSettings.addActionListener((e) -> {
+            SettingsDialog settingsDialog = new SettingsDialog();
+            settingsDialog.setSize(900, 600);
+            settingsDialog.setResizable(false);
+            settingsDialog.setLocationRelativeTo(null);
+
+            settingsDialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    super.windowClosed(e);
+                    arrangeProducts();
+                }
+            });
+
+            settingsDialog.setVisible(true);
+        });
+
+        buttonDeleteCustomer.addActionListener((e) -> {
+            Customer customer = (Customer) comboBoxCustomers.getSelectedItem();
+            restaurantService.deleteCustomer(customer);
+            comboBoxCustomers.setModel(new JComboBox(restaurantService.getCustomers().toArray()).getModel());
+        });
+
+        arrangeProducts();
+        comboBoxTables.setModel(new JComboBox(restaurantService.getTables().toArray()).getModel());
+        comboBoxCustomers.setModel(new JComboBox(restaurantService.getCustomers().toArray()).getModel());
     }
 
     public static void main(String[] args) {
@@ -178,13 +214,9 @@ public class WaiterGUI {
         frame.setSize(900, 600);
         frame.setVisible(true);
 
-        SettingsDialog settingsDialog = new SettingsDialog();
-        settingsDialog.setSize(600, 600);
-        settingsDialog.setLocationRelativeTo(null);
-        settingsDialog.setVisible(true);
     }
 
-    private void initRestaurantConfig() {
+    private void arrangeProducts() {
 
         ArrayList<Product> products = restaurantService.getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
@@ -201,8 +233,7 @@ public class WaiterGUI {
 
         this.comboBoxAddDrink.setModel(new JComboBox(drinks.toArray()).getModel());
         this.comboBoxAddFood.setModel(new JComboBox(foodItems.toArray()).getModel());
-        this.comboBoxTables.setModel(
-                new JComboBox(restaurantService.getTables().toArray()).getModel());
+
     }
 
     private void refreshNewOrderTextArea() {

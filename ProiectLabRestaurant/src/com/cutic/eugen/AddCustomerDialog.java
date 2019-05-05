@@ -85,7 +85,9 @@ public class AddCustomerDialog extends JDialog {
         if (notValid)
             return;
 
-        RestaurantService.getInstance().addCustomer(new Customer(name, email, 1));
+        Customer customer = new Customer(name, email, 1);
+        RestaurantService.getInstance().addCustomer(customer);
+
         dispose();
     }
 

@@ -23,10 +23,12 @@ public class ProductRepository {
 
         while(scanner.hasNextLine()) {
             String[] line = scanner.nextLine().split(" ");
-            int price = Integer.parseInt(line[0]);
-            int quantity = Integer.parseInt(line[1]);
-            String name = line[2];
-            products.add(new FoodItem(price, quantity, name));
+            if (!line[0].equals("")) {
+                int price = Integer.parseInt(line[0]);
+                int quantity = Integer.parseInt(line[1]);
+                String name = line[2];
+                products.add(new FoodItem(price, quantity, name));
+            }
         }
         scanner.close();
 
@@ -57,8 +59,8 @@ public class ProductRepository {
         if (product instanceof Drink)
             path = Const.DRINK_MENU_PATH;
         try(FileWriter fw = new FileWriter(path, true)) {
-            fw.write("\n");
             fw.write(product.toFileFormatString());
+            fw.write("\n");
             fw.flush();
         } catch (IOException ex) {
             ex.printStackTrace();
