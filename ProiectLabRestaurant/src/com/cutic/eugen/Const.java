@@ -6,5 +6,5 @@ public class Const {
     public static final String DRINK_MENU_PATH = "F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/drinkMenu";
     public static final String FOOD_MENU_PATH = "F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/foodMenu";
     public static final String TABLES_PATH = "F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/tables";
-    public static final String LOG_PATH = "F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/log";
+    public static final String CSV_LOG_PATH = "F:/Projects/PAO/ProiectLabRestaurant/src/com/cutic/eugen/log.csv";
 }

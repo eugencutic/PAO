@@ -38,6 +38,8 @@ public class RestaurantService {
         initVouchers();
         initTables();
         initProducts();
+
+        RestaurantLogging.initLog();
     }
 
     public static RestaurantService getInstance() {
