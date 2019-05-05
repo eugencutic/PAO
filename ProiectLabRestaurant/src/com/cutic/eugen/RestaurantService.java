@@ -22,6 +22,7 @@ public class RestaurantService {
     private CustomerRepository mCustomerRepo;
     private VoucherRepository mVoucherRepo;
     private TableRepository mTableRepo;
+    private ProductRepository mProductRepo;
 
     private RestaurantService(){
         mProducts = new ArrayList<>();
@@ -32,9 +33,11 @@ public class RestaurantService {
         mCustomerRepo = new CustomerRepository();
         mVoucherRepo = new VoucherRepository();
         mTableRepo = new TableRepository();
+        mProductRepo = new ProductRepository();
         initCustomers();
         initVouchers();
         initTables();
+        initProducts();
     }
 
     public static RestaurantService getInstance() {
@@ -53,6 +56,10 @@ public class RestaurantService {
 
     private void initTables() {
         mTables = mTableRepo.readRecordsFromFile();
+    }
+
+    private void initProducts() {
+        mProducts = mProductRepo.readRecordsFromFile();
     }
 
     public ArrayList<Customer> getCustomers() {

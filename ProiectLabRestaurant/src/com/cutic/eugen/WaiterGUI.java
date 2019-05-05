@@ -27,6 +27,7 @@ public class WaiterGUI {
     private JComboBox comboBoxAddDrink;
     private JButton buttonDelivered;
     private JButton buttonRegisterCustomer;
+    private JButton buttonSettings;
 
     private Order mNewOrder = null;
 
@@ -134,7 +135,7 @@ public class WaiterGUI {
                 MakeCheckDialog makeCheckDialog = new MakeCheckDialog(table);
                 makeCheckDialog.setSize(450, 300);
                 makeCheckDialog.setLocationRelativeTo(null);
-                //TODO: refresh table
+
                 makeCheckDialog.addWindowListener(new WindowAdapter() {
                     @Override
                     public void windowClosed(WindowEvent e) {
@@ -177,14 +178,15 @@ public class WaiterGUI {
         frame.setSize(900, 600);
         frame.setVisible(true);
 
-
+        SettingsDialog settingsDialog = new SettingsDialog();
+        settingsDialog.setSize(600, 600);
+        settingsDialog.setLocationRelativeTo(null);
+        settingsDialog.setVisible(true);
     }
 
     private void initRestaurantConfig() {
-        initDrinks();
-        initFood();
 
-        ArrayList<Product> products = RestaurantService.getInstance().getProducts();
+        ArrayList<Product> products = restaurantService.getProducts();
         ArrayList<Drink> drinks = new ArrayList<>();
         ArrayList<FoodItem> foodItems = new ArrayList<>();
 
@@ -200,49 +202,7 @@ public class WaiterGUI {
         this.comboBoxAddDrink.setModel(new JComboBox(drinks.toArray()).getModel());
         this.comboBoxAddFood.setModel(new JComboBox(foodItems.toArray()).getModel());
         this.comboBoxTables.setModel(
-                new JComboBox(RestaurantService.getInstance().getTables().toArray()).getModel());
-    }
-
-    private void initFood() {
-        File foodMenu = new File(Const.FOOD_MENU_PATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(foodMenu);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (scanner == null)
-            return;
-
-        while(scanner.hasNextLine()) {
-            String[] line = scanner.nextLine().split(" ");
-            int price = Integer.parseInt(line[0]);
-            int quantity = Integer.parseInt(line[1]);
-            String name = line[2];
-            RestaurantService.getInstance().addProduct(new FoodItem(price, quantity, name));
-        }
-        scanner.close();
-    }
-
-    private void initDrinks(){
-        File drinkMenu = new File(Const.DRINK_MENU_PATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(drinkMenu);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (scanner == null)
-            return;
-
-        while(scanner.hasNextLine()) {
-            String[] line = scanner.nextLine().split(" ");
-            int price = Integer.parseInt(line[0]);
-            int quantity = Integer.parseInt(line[1]);
-            String name = line[2];
-            RestaurantService.getInstance().addProduct(new Drink(price, quantity, name));
-        }
-        scanner.close();
+                new JComboBox(restaurantService.getTables().toArray()).getModel());
     }
 
     private void refreshNewOrderTextArea() {
@@ -253,7 +213,7 @@ public class WaiterGUI {
 
         StringBuilder text = new StringBuilder();
         for (Map.Entry pair : mNewOrder.getProducts().entrySet()) {
-            text.append(RestaurantService.getInstance().getProductById((int)pair.getKey()).toString() +
+            text.append(restaurantService.getProductById((int)pair.getKey()).toString() +
                     " " + pair.getValue() + "\n");
         }
         textAreaNewOrder.setText(text.toString());
@@ -267,7 +227,7 @@ public class WaiterGUI {
             return;
         }
         for (Map.Entry pair : order.getProducts().entrySet()) {
-            text.append(RestaurantService.getInstance().getProductById((int)pair.getKey()).toString() +
+            text.append(restaurantService.getProductById((int)pair.getKey()).toString() +
                     " " + pair.getValue() + "\n");
         }
         textAreaOrder.setText(text.toString());
