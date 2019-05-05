@@ -9,7 +9,6 @@ public class SettingsDialog extends JDialog {
     private JTextField textFieldVoucherCode;
     private JTextField textFieldProductName;
     private JTextField textFieldTableCount;
-    private JTextField textFieldVoucherProductName;
     private JTextField textFieldVoucherPercentage;
     private JComboBox comboBoxDeleteVoucher;
     private JRadioButton foodRadioButton;
@@ -19,6 +18,11 @@ public class SettingsDialog extends JDialog {
     private JButton buttonAddVoucher;
     private JButton buttonAddProduct;
     private JButton buttonSetTableCount;
+    private JComboBox comboBoxProducts;
+    private JButton buttonDeleteVoucher;
+    private JButton buttonDeleteProduct;
+
+    private RestaurantService restaurantService;
 
     public SettingsDialog() {
         setContentPane(contentPane);
@@ -45,6 +49,46 @@ public class SettingsDialog extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+        restaurantService = RestaurantService.getInstance();
+        comboBoxProducts.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+        comboBoxDeleteProduct.setModel(new JComboBox(restaurantService.getProducts().toArray()).getModel());
+        comboBoxDeleteVoucher.setModel(new JComboBox(restaurantService.getVouchers().toArray()).getModel());
+
+        buttonAddVoucher.addActionListener((e) -> onAddVoucher());
+        buttonDeleteVoucher.addActionListener((e) -> onDeleteVoucher());
+    }
+
+    private void onAddVoucher() {
+        String code = textFieldVoucherCode.getText();
+        Product product = (Product) comboBoxProducts.getSelectedItem();
+        String productName = product.getName();
+        String percentageString = textFieldVoucherPercentage.getText();
+        double percentageValue;
+        try {
+            percentageValue = Double.parseDouble(percentageString.replace(",", "."));
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(contentPane, "Percentage is not valid",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (percentageValue > 100) {
+            JOptionPane.showMessageDialog(contentPane, "Percentage is not valid",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        restaurantService.addVoucher(new Voucher(code, productName, percentageValue));
+
+        textFieldVoucherCode.setText("");
+        textFieldVoucherPercentage.setText("");
+        comboBoxDeleteVoucher.setModel(new JComboBox(restaurantService.getVouchers().toArray()).getModel());
+    }
+
+    private void onDeleteVoucher() {
+        Voucher voucher = (Voucher) comboBoxDeleteVoucher.getSelectedItem();
+        restaurantService.deleteVoucher(voucher);
+        comboBoxDeleteVoucher.setModel(new JComboBox(restaurantService.getVouchers().toArray()).getModel());
     }
 
     private void onOK() {

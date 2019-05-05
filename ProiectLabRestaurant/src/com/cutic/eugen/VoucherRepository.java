@@ -24,7 +24,7 @@ public class VoucherRepository {
             String[] line = scanner.nextLine().split(" ");
             String code = line[0];
             String name = line[1];
-            int percentage = Integer.parseInt(line[2]);
+            double percentage = Double.parseDouble(line[2]);
             vouchers.add(new Voucher(code, name, percentage));
         }
         scanner.close();
@@ -40,5 +40,50 @@ public class VoucherRepository {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void appendRecordToFile(Voucher voucher) {
+        try(FileWriter fw = new FileWriter(Const.VOUCHERS_PATH, true)) {
+            fw.write("\n");
+            fw.write(voucher.toFileFormatString());
+            fw.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void deleteRecordFromFile(Voucher voucher) {
+        File vouchersFile = new File(Const.VOUCHERS_PATH);
+        File temp = new File(Const.VOUCHERS_PATH + "temp");
+
+        try(FileWriter fw = new FileWriter(temp)) {
+            Scanner scanner = null;
+            try {
+                scanner = new Scanner(vouchersFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (scanner == null)
+                return;
+
+            while(scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] properties = line.split(" ");
+                String code = properties[0];
+
+                if (!code.equals(voucher.getCode())) {
+                    fw.write(line);
+                    fw.write("\n");
+                }
+            }
+            fw.flush();
+            scanner.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        boolean delete = vouchersFile.delete();
+        boolean b = temp.renameTo(vouchersFile);
     }
 }

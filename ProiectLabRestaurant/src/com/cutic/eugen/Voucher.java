@@ -25,6 +25,11 @@ public class Voucher {
         return mCode;
     }
 
+    @Override
+    public String toString() {
+        return mCode;
+    }
+
     public String toFileFormatString() {
         return mCode + " " + mProductName + " " + mPercentage;
     }

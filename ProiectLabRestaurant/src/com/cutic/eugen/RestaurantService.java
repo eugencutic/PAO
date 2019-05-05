@@ -66,6 +66,10 @@ public class RestaurantService {
         return mCustomers;
     }
 
+    public ArrayList<Voucher> getVouchers() {
+        return mVouchers;
+    }
+
     public void addTable(Table table) {
         mTables.add(table);
     }
@@ -96,6 +100,12 @@ public class RestaurantService {
 
     public void addVoucher(Voucher voucher) {
         mVouchers.add(voucher);
+        mVoucherRepo.appendRecordToFile(voucher);
+    }
+
+    public void deleteVoucher(Voucher voucher) {
+        mVouchers.remove(voucher);
+        mVoucherRepo.deleteRecordFromFile(voucher);
     }
 
     public Voucher getVoucherByCode(String code) {
