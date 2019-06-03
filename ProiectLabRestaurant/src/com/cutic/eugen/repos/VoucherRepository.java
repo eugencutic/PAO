@@ -101,7 +101,7 @@ public class VoucherRepository {
         ResultSet rs = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             stmt = conn.createStatement();
 
@@ -146,7 +146,7 @@ public class VoucherRepository {
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "INSERT INTO Vouchers VALUES (?, ?, ?)";
             pstmt = conn.prepareStatement(qrySQL);
@@ -183,7 +183,7 @@ public class VoucherRepository {
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "DELETE FROM Vouchers WHERE id = ?";
             pstmt = conn.prepareStatement(qrySQL);

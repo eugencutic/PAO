@@ -57,7 +57,7 @@ public class CustomerRepository{
         ResultSet rs = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             stmt = conn.createStatement();
 
@@ -102,7 +102,7 @@ public class CustomerRepository{
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "INSERT INTO Customers VALUES (?, ?, ?)";
             pstmt = conn.prepareStatement(qrySQL);
@@ -139,7 +139,7 @@ public class CustomerRepository{
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "DELETE FROM Customers WHERE id = ?";
             pstmt = conn.prepareStatement(qrySQL);

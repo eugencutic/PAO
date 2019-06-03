@@ -125,7 +125,7 @@ public class ProductRepository {
         ResultSet rs = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             stmt = conn.createStatement();
 
@@ -170,7 +170,7 @@ public class ProductRepository {
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "INSERT INTO Products VALUES (?, ?, ?)";
             pstmt = conn.prepareStatement(qrySQL);
@@ -207,7 +207,7 @@ public class ProductRepository {
         PreparedStatement pstmt = null;
         try
         {
-            conn = DriverManager.getConnection("");
+            conn = DriverManager.getConnection(Const.DB_URL);
 
             String qrySQL = "DELETE FROM Products WHERE id = ?";
             pstmt = conn.prepareStatement(qrySQL);
