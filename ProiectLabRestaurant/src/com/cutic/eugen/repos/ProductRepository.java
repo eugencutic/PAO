@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -114,5 +115,124 @@ public class ProductRepository {
         boolean delete = productsFile.delete();
         boolean b = temp.renameTo(productsFile);
 
+    }
+
+    public ArrayList<Product> readRecordsFromDB() {
+        ArrayList<Product> Products = new ArrayList<>();
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            stmt = conn.createStatement();
+
+            String qrySQL = "SELECT * FROM Products ORDER BY id";
+            rs = stmt.executeQuery(qrySQL);
+
+            while(rs.next()) {
+                Products.add(new Product(
+                        rs.getInt("price"),
+                        rs.getInt("quantity"),
+                        rs.getString("name")
+                ));
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(rs != null)
+                    rs.close();
+
+                if(stmt != null)
+                    stmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+        return Products;
+    }
+
+    public void addRecordToDB(Product Product) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "INSERT INTO Products VALUES (?, ?, ?)";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setInt(1, Product.getPrice());
+            pstmt.setInt(2, Product.getQuantityAvailable());
+            pstmt.setString(3, Product.getName());
+
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+    }
+
+    public void deleteRecordFromDB(Product Product) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "DELETE FROM Products WHERE id = ?";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setInt(1, Product.getId());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
     }
 }

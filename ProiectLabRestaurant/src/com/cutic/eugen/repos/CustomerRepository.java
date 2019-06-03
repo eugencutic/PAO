@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,6 +46,125 @@ public class CustomerRepository{
             fw.flush();
         } catch (IOException ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public ArrayList<Customer> readRecordsFromDB() {
+        ArrayList<Customer> customers = new ArrayList<>();
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            stmt = conn.createStatement();
+
+            String qrySQL = "SELECT * FROM Customers ORDER BY id";
+            rs = stmt.executeQuery(qrySQL);
+
+            while(rs.next()) {
+                customers.add(new Customer(
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getInt("visits")
+                ));
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(rs != null)
+                    rs.close();
+
+                if(stmt != null)
+                    stmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+        return customers;
+    }
+
+    public void addRecordToDB(Customer customer) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "INSERT INTO Customers VALUES (?, ?, ?)";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setString(1, customer.getName());
+            pstmt.setString(2, customer.getEmail());
+            pstmt.setInt(3, customer.getVisits());
+
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+    }
+
+    public void deleteRecordFromDB(Customer customer) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "DELETE FROM Customers WHERE id = ?";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setInt(1, customer.getId());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
         }
     }
 

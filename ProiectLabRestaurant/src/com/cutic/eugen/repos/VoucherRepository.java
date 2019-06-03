@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -90,5 +91,124 @@ public class VoucherRepository {
 
         boolean delete = vouchersFile.delete();
         boolean b = temp.renameTo(vouchersFile);
+    }
+
+    public ArrayList<Voucher> readRecordsFromDB() {
+        ArrayList<Voucher> Vouchers = new ArrayList<>();
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            stmt = conn.createStatement();
+
+            String qrySQL = "SELECT * FROM Vouchers ORDER BY id";
+            rs = stmt.executeQuery(qrySQL);
+
+            while(rs.next()) {
+                Vouchers.add(new Voucher(
+                        rs.getString("code"),
+                        rs.getString("product_name"),
+                        rs.getDouble("percentage")
+                ));
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(rs != null)
+                    rs.close();
+
+                if(stmt != null)
+                    stmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+        return Vouchers;
+    }
+
+    public void addRecordToDB(Voucher Voucher) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "INSERT INTO Vouchers VALUES (?, ?, ?)";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setString(1, Voucher.getCode());
+            pstmt.setString(2, Voucher.getProductName());
+            pstmt.setDouble(3, Voucher.getPercentage());
+
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
+    }
+
+    public void deleteRecordFromDB(Voucher Voucher) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            conn = DriverManager.getConnection("");
+
+            String qrySQL = "DELETE FROM Vouchers WHERE id = ?";
+            pstmt = conn.prepareStatement(qrySQL);
+
+            pstmt.setString(1, Voucher.getCode());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Eroare la conectarea la BD: " + ex);
+        }
+        finally
+        {
+            try
+            {
+                if(pstmt != null)
+                    pstmt.close();
+
+                if(conn != null)
+                    conn.close();
+            }
+            catch (SQLException ex)
+            {
+                System.out.println("Eroare la închiderea conexiunii cu BD!");
+            }
+        }
     }
 }

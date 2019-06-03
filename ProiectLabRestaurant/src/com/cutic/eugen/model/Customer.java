@@ -46,6 +46,14 @@ public class Customer {
         this.mRegular = mRegular;
     }
 
+    public int getVisits() {
+        return mVisits;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
     public String toFileFormatString() {
         return mVisits + "*" +  mName + "*" + mEmail + "\n";
     }
